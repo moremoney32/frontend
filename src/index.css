@@ -1,0 +1,82 @@
+#body{
+    width: 100%;
+}
+#bloc-page-menu {
+    width: 1200px;
+    margin: auto;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 30px;
+    background: linear-gradient(
+         to right,
+         #000139,
+         #010137,
+         #01002e,
+         #000189,
+         #0001bc
+    );
+    border-radius: 7px;
+    min-height: 100vh;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+         sans-serif;
+    font-weight: 400;
+}
+#section {
+    border-top: 1px solid #686d74;
+    width: 100%;
+    display: flex;
+}
+.black-center-main{
+    width: 65%;
+    background:green;
+ }
+
+@media screen and (max-width:767px) {
+    #body{
+        width: 95%;
+        margin: auto;
+        text-align: center;
+    }
+    #bloc-page-menu{
+            width: 95%;
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 0px;
+            background: linear-gradient(
+                 to right,
+                 #000139,
+                 #010137,
+                 #01002e,
+                 #000189,
+                 #0001bc
+            );
+            border-radius: 7px;
+            
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+                 sans-serif;
+            font-weight: 400;
+            margin: auto;
+    }
+    #section {
+        border-top: 1px solid #686d74;
+        width: 100%;
+        display: flex;
+        position: relative;
+    }
+    .black-mobile-commande{
+        background:black !important;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0; 
+        z-index: 900;
+        opacity: 0.5;
+        min-height: 1000vh !important;
+         
+     }
+     .black-center-main{
+        width: 100%;
+     }
+     
+}

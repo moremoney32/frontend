@@ -1,0 +1,117 @@
+.section3 {
+    background: #fff !important;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 160px;
+}
+.section3-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.section3-information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #fafcfe;
+}
+.section3-information span {
+    color: black;
+    font-weight: 600;
+}
+.section3-information-profil {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-left: 15px;
+}
+.section3-information-profil img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.section3-information-name {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.section3-information-name :nth-child(1) {
+    color: black;
+    font-weight: 600;
+    font-size: 13px;
+}
+.section3-information-name :nth-child(2) {
+    color: darkgray;
+
+    font-size: 11px;
+}
+.section3-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.section3-2-profil {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 10px;
+    align-items: center;
+}
+.section3-2-profil-img {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    position: relative;
+}
+.section3-2-profil-img img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.section3-2-profil-img .vert {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    background: #1dd567;
+    color: transparent;
+    left: 20px;
+    top: 16px;
+}
+.orange {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    background: #fa8236;
+    color: transparent;
+    left: 20px;
+    top: 16px;
+}
+.section3-2-profil-img span {
+    font-size: 10px;
+}
+@media screen and (max-width:767px) {
+    .section3 {
+        position: absolute;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+        z-index: -999;
+    }
+    .section3.visibleGroup{
+        opacity: 1;
+        z-index: 2000 !important;
+    }
+   
+   
+}
+

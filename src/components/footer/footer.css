@@ -1,0 +1,36 @@
+.position-sticked{
+    display:none;
+   
+  
+}
+@media screen and (max-width:767px) {
+    .position-sticked{
+        display: block;
+        background:white;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        display: flex;
+        justify-content: space-between;
+       position: sticky !important;
+       bottom:0px !important;
+       z-index: 100 !important;
+      
+    }
+    .child-position-sticked{
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+    .child-position-sticked img{
+        width: 20px;
+        height: 20px;
+        display: flex;
+        margin: auto;
+    }
+    .child-position-sticked :nth-child(2){
+        font-size: 16px;
+        color:#0001bc;
+    }
+}
