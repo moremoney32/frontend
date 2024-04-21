@@ -107,10 +107,10 @@
 .main-signup-right{
     width: 40%;
 }
-.main-signup-right img{
+/*.main-signup-right img{
     width: 100%;
     object-fit: cover;
-}
+}*/
 
 .navlink{
    text-decoration: none;
@@ -118,19 +118,22 @@
    font-size: 20px;
 
 }
+.mobile-signup{
+    display: none;
+}
 
 /*****css phone animation*****/
 .parent-screenshot {
     position: relative;
     width: 100%;
-    display: block !important;
 }
 .all-screenshot {
-    position: absolute;
+    position: absolute ;
     top: 30px;
     left: 130px;
     width: 100%;
 }
+
 .slide {
     position: absolute;
     object-fit: cover;
@@ -142,4 +145,100 @@
 }
 /****fin css animation*****/
 @media screen and (max-width:767px) {
+    .main{
+        display: none !important;
+    }
+    .mobile-signup{
+        display:block;
+        position: relative;
+        padding-top: 0px;
+        padding-bottom: 20px;
+    }
+    .login{
+        position: absolute;
+        right: 0;
+        font-size: 22px;
+        color: darkgray;
+        font-weight: 800;
+    }
+    .parent-form{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        padding-top: 50px;
+    }
+    .signup{
+        text-align: left;
+        font-size: 22px;
+        color: black;
+        font-weight: 800;
+    }
+    .form-mobile{
+       padding-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .space-form{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .space-form label{
+        text-align: left;
+        color: darkgray;
+        font-weight: 700;
+    }
+    .space-form input{
+        padding-bottom: 5px;
+        border-bottom: 3px solid darkgray;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        outline: none;
+    }
+    .space-form input:focus{
+        color: black !important;
+        font-weight: 800;
+
+    }
+    .button-signup-mobile{
+        transform: translate3d(0,15px,0);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: none;
+        text-align: center;
+        font-size: 18px;
+        background: black;
+        color: white;
+        cursor: pointer;
+        border-radius: 20px;
+        box-shadow: 7px 7px 40px -20px rgba(0,0,0,0.9) !important;
+    }
+    .check-inscription-social{
+       padding-top: 20px;
+    }
+    .select-social{
+        display: flex;
+        justify-content: space-between;
+    }
+    .select-social-div{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+        border-radius: 20px;
+        align-items: center;
+        border: 1px solid black;
+    }
+    .use-social{
+        padding-top: 20px;
+    }
+    .select-social-div-span{
+        font-weight: 800;
+    }
+    
 }

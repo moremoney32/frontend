@@ -40,6 +40,11 @@
 .user-profile{
     transform: translate3d(0,5px,0);
 }
+.header-mobile{
+    display: none !important;
+}
 @media screen and (max-width:767px) {
-    
+    .parent-header{
+        display: none !important;
+    }
 }

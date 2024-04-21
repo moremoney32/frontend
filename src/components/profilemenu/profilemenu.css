@@ -14,20 +14,20 @@
     padding-top: 10px;
 }
 .suivre-followers{
-   background: brown;
+   background:black;
    color: white;
-   font-size: 18px;
+   font-size: 20px;
    border-radius: 20px;
    padding: 10px;
    text-align: center;
    cursor: pointer;
-   padding-left: 15px;
-   padding-right: 15px;
+   padding-left: 25px;
+   padding-right: 25px;
 
 }
 .suivant{
-   background:#fce9ef;
-   color:black;
+   background:brown;
+   color:white;
    font-size: 18px;
    font-weight: 800;
    border-radius: 20px;
@@ -37,13 +37,13 @@
    padding-left: 25px;
    padding-right: 25px;
 position: absolute;
-right: 0;
+right: 20px;
 
 }
 .left-navbar{
     position: absolute;
-    left: 0;
-    top: 50px;
+    left: 20px;
+    top: 35px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -60,7 +60,7 @@ right: 0;
 }
 .profile-menu-section1{
    width: 50%;
-   background: #fce9ef;
+   background:brown;
    border-radius: 10px;
    padding-left: 30px;
    padding-right: 30px;
@@ -82,6 +82,7 @@ right: 0;
 .profile-menu-section1-h3{
     font-size: 22px;
     margin: auto;
+    color: white;
 }
 /*.custom-file-input input[type="file"] {
     display: none;
@@ -121,13 +122,13 @@ right: 0;
     width: 250px;
     text-align: center;
     border-radius: 20px;
-    color:black;
+    color:white;
     border: none;
     cursor: pointer;
     padding-top: 10px;
     padding-bottom: 10px;
     margin: auto;
-    background:rosybrown;
+   background:black;
     font-size: 20px;
     display: inline-block;
 
@@ -135,7 +136,7 @@ right: 0;
 
 .profile-menu-section2{
     width: 50%;
-    background: #fce9ef;
+    background:brown;
     border-radius: 10px;
     padding-left: 30px;
    padding-right: 30px;
@@ -155,6 +156,7 @@ right: 0;
  .profile-menu-section2-h2{
     margin: auto;
     font-size: 22px;
+    color: white;
  }
  .profile-menu-section2-input{
     position: absolute;
@@ -174,8 +176,8 @@ right: 0;
     right: 0;
     border-radius: 10px 5px 20px 10px;
     text-align: center;
-    color: brown;
-    background: rosybrown;
+    color: white;
+    background: black;
     padding: 10px;
     cursor: pointer;
     font-size: 15px;
@@ -196,6 +198,7 @@ right: 0;
  }
  h4{
     font-size: 18px;
+    color: white;
  }
  .parent-follow{
     display: flex;
@@ -204,12 +207,13 @@ right: 0;
  }
  .follow{
     text-align: center;
-    color: white;
+    color:black;
     padding: 12px;
-    background: brown;
+    background: #04BFBF;
     border-radius: 20px;
     cursor: pointer;
     font-size: 18px;
+    font-weight: 1000;
  }
  #masque{
     position: fixed;
@@ -291,6 +295,126 @@ right: 0;
     line-height: 15px;
     cursor: pointer;
     font-weight: 500;
+ }
+ @media screen and (max-width:767px) {
+   .profile-menu{
+      padding-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+     width: 90%;
+      margin: auto;
+      position: relative;
+  }
+  .profile-menu-section{
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
+   margin: auto;
+   width: 95%;
+}
+.profile-menu-section1{
+  width: 95%;
+  background:brown;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 280px;
+  margin: auto;
+}
+.profile-menu-section2{
+   width: 95%;
+   background:brown;
+   border-radius: 10px;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 15px;
+   padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 380px;
+  margin: auto;
+}
+.profile-menu-section2-parent-input{
+   position: relative;
+   height: 100px;
+   border: 1px solid brown;
+   border-radius:25px 20px 5px 10px ;
+}
+.profile-menu-section2-input{
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   border: none;
+   background:#fce9ef;
+   font-size: 18px;
+   color: black;
+   outline: none;
+   width: 90%;
+}
+.profile-menu-h1{
+   margin: auto;
+   padding-top: 10px;
+   font-size: 25px;
+}
+.suivant{
+   background:brown;
+   color:white;
+   font-size: 16px;
+   font-weight: 800;
+   border-radius: 20px;
+   padding: 10px;
+   text-align: center;
+   cursor: pointer;
+   padding-left: 25px;
+   padding-right: 25px;
+   position: absolute;
+   right: 20px;
+
+}
+
+.suivre-followers{
+   background:black;
+   color: white;
+   font-size: 18px;
+   border-radius: 20px;
+   padding: 10px;
+   text-align: center;
+   cursor: pointer;
+   padding-left: 25px;
+   padding-right: 25px;
+
+}
+#proposition{
+   position: absolute;
+   top:20px;
+   left:0px;
+   background:rosybrown !important;
+   width:90%;
+   border-radius: 10px;
+   z-index: 45;
+   padding: 10px;
+   padding-left: 10px;
+   padding-right: 10px;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+.left-navbar{
+   position: absolute;
+   left: 0px;
+   top: 25px;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
  }
  
  

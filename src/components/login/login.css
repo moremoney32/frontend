@@ -1,0 +1,120 @@
+
+.main{
+    padding-left: 20px;
+    padding-right: 50px;
+    padding-top: 25px;
+    display: flex;
+    gap: 35px;
+    align-items: center;
+    width: 900px;
+    margin: auto;
+}
+.main-signup-left{
+    width: 60%;
+    background:#04ADBF;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    display: flex;
+    gap: 80px;
+}
+.error{
+    color: red;
+}
+.signup-connexion{
+    width: 25%;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.signup-connexion-span{
+    width: 150px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-radius: 20px;
+    background:transparent;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+.signup-connexion-span-hover{
+    background:#fce9ef;
+    width: 150px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 800;
+}
+.form{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.space-signup{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.information-condition{
+    width: 80%;
+    display: flex;
+    gap: 5px;
+}
+.conditions{
+    color:black;
+    padding-left: 5px;
+}
+.button-signup{
+    width: 80%;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background:#fce9ef;
+    height: 50px;
+    font-size: 16px;
+    color:black;
+    font-weight: 800;
+
+}
+.space-signup label{
+    margin: auto;
+    font-size: 20px;
+    color:black;
+}
+.space-signup input{
+   width: 100%;
+   border-radius: 20px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   background: white;
+   height: 30px;
+   padding-left: 15px;
+}
+.main-signup-rights{
+    width: 40%;
+}
+.main-signup-rights img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.navlink{
+   text-decoration: none;
+   color: black;
+   font-size: 20px;
+
+}

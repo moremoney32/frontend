@@ -44,6 +44,14 @@ export const ProfileMenu = () => {
             return dispatch(setUserData(result))
         })
     }
+    const handleEtatFollowing =()=>{
+      setMasque(true)
+      setEtatFollowing(true)
+  }
+  const handleEtatFollowers =()=>{
+    setMasque(true)
+    setEtatFollowers(true)
+}
     const allDatas = useSelector(state => state?.allUserDatas)
     console.log(allDatas.allUserData)
     const handleChangeInput = (e)=>{
@@ -280,10 +288,10 @@ export const ProfileMenu = () => {
                             <h4 className="date-time-h4-2"> a {formatTime(userInfos?.timeCode)?.time}</h4>
                         </div>
                         <div className="parent-follow">
-                        <span className="follow" onClick={()=>setEtatFollowing(true)}>Abonnements:{userInfos?.following?.length} </span>
-                        <span className="follow" onClick={()=>setEtatFollowers(true)}> Tes Abonnes:{userInfos?.followers?.length}</span>
+                        <span className="follow" onClick={handleEtatFollowing}>Abonnements:{userInfos?.following?.length} </span>
+                        <span className="follow" onClick={handleEtatFollowers}> Tes Abonnes:{userInfos?.followers?.length}</span>
                         </div>
-                        {etatFollowing &&<div id="proposition"> 
+                        {etatFollowing && masque &&<div id="proposition"> 
              <div className="sous-parent-proposition">
                 <h5> Tes Abonnements</h5>
                 <img src={close} alt="" className="proposition-close" onClick={closeArrayFollower}/>
@@ -326,7 +334,7 @@ export const ProfileMenu = () => {
              
                 </div>}
                 {/****followers***/}
-                     {etatFollowers &&<div id="proposition"> 
+                     {etatFollowers && masque &&<div id="proposition"> 
              <div className="sous-parent-proposition">
                 <h5> Tes Abonnes</h5>
                 <img src={close} alt="" className="proposition-close" onClick={closeArrayFollower}/>
