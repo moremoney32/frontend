@@ -1,11 +1,8 @@
 import  "./login.css"
-//import "../signup/signup.css"
 import { useForm } from 'react-hook-form';
 import { useContext, useRef, useState } from 'react';
 import ordinateur from "../../images/ordinateur.jpg"
 import { snackbbar } from "../../helpers/snackbbar";
-
-import eyesLock from "../../icons/eyesLock.svg";
 import { NavLink, Navigate } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { fetchData } from "../../helpers/fetchData";

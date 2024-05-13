@@ -1,22 +1,16 @@
 import "./signup.css"
 import { useForm } from 'react-hook-form';
 import { useEffect, useRef, useState } from 'react';
-import ordinateur from "../../images/ordinateur.jpg"
 import phoneinstagram from "../../assets/images/phoneinstagram.PNG";
-import screenshot1 from "../../assets/images/screenshot1.png";
 import screenshot2 from "../../assets/images/screenshot2.png";
 import screenshot3 from "../../assets/images/screenshot3.png";
 import screenshot4 from "../../assets/images/screenshot4.png";
-import { NavLink, Navigate } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { fetchData } from "../../helpers/fetchData";
 import { snackbbar } from "../../helpers/snackbbar";
-import { useDispatch} from "react-redux";
-import { setUser } from "../../appRedux/features/userSlice";
-import { setAuth } from "../../appRedux/features/authSlice";
 export const Signup = ()=>{
   const navigate = useNavigate();
-  const dispatch = useDispatch();
    
     const [loading, setLoading] = useState(false);
     const [connect, setConnect] = useState(true);
@@ -84,7 +78,7 @@ const handleSubmitMobile = (e)=>{
           console.log(result)
             
             if(result.message === "Utilisateur créé avec succès"){
-              return snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.message, 5000),dispatch(setAuth(result.userId)),navigate("/login")
+              return snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.message, 5000),navigate("/login")
             }
             else if(result.messageError === 'cet email existe deja veuillez changer d adresse'){
                snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.messageError, 5000)
@@ -121,7 +115,7 @@ const handleChange = (e)=>{
           console.log(result)
             
             if(result.message === "Utilisateur créé avec succès"){
-              return snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.message, 5000),dispatch(setAuth(result.userId)),navigate("/login")
+              return snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.message, 5000),localStorage.setItem("id",result.userId),navigate("/login")
             }
             else if(result.messageError === 'cet email existe deja veuillez changer d adresse'){
                snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.messageError, 5000)

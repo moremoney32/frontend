@@ -14,6 +14,7 @@
     gap: 30px;
 }
 
+
 .sous-section2-1-2-sous-parent{
     display: flex;
     flex-direction: column;
@@ -419,7 +420,6 @@
 }
 /******fin****/
 #textarea-comment{
-    background: red;
     position: absolute;
     bottom: 100px;
     width: 300px;
@@ -705,6 +705,9 @@
     width: 25px;
     height: 25px;
 }
+.control-emogiStickers{
+    transform: translate3d(0,-20px,0);
+}
 .parent-emogis{
     width: 80%;
     padding-top: 15px;
@@ -736,6 +739,7 @@
     border-radius: 10px;
      left: 35%;
     top: 10%;
+    height: 450px;
     z-index: 1200;
     display: flex;
     flex-direction: column;
@@ -795,9 +799,6 @@
   }
   #space-comment{
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
     padding: 10px;
   }
   .space-comment-header{
@@ -806,40 +807,55 @@
     color: darkgray;
     font-size: 20px;
   }
-  .space-comment-main{
-    display: flex;
-    gap: 10px;
-    transform: translate3d(0,40px,0);
-  }
-  .space-comment-main img{
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  .contain-comment{
-    background:darkgray;
+  .updateComments{
+    position: absolute;
+    left: 20px;
+    top: 30px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+  .parent-space-comment-main{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .space-comment-main{
+    display: flex;
+    gap: 10px;
+  }
+  .space-comment-main img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover !important;
+  }
+  .contain-comment{
+    background:rgba(169, 169, 169, 0.856);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     border-radius: 10px;
     padding: 10px;
+    padding-right: 20px;
 
   }
   .contain-comment-name{
     color: black;
-    font-weight: 600;
+    font-weight: 800;
     font-size: 18px;
-    color:white;
   }
   .contain-comment-message{
-    font-size: 15px;
+    font-size: 13px;
+    width: 200px;
   }
   .space-comment-footer{
     display: flex;
     gap: 10px;
     cursor: pointer;
-    transform: translate3d(0,40px,0);
+    color: #686d74;
+    transform: translate3d(45px,0,0);
+    font-size: 13px;
   }
   .likes-dislikes{
     cursor: pointer !important;

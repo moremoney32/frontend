@@ -150,6 +150,7 @@
         display: flex;
         gap: 7px;
         align-items: center;
+        margin-right:35px !important;
     }
     .messages-mobile{
         display: flex;

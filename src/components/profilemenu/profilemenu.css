@@ -144,8 +144,8 @@ right: 20px;
    padding-bottom: 50px;
    display: flex;
    flex-direction: column;
-   gap: 15px;
-   height: 380px;
+   gap: 25px;
+   height: 400px;
  }
  .profile-menu-section2-parent-input{
     position: relative;
@@ -203,7 +203,7 @@ right: 20px;
  .parent-follow{
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 25px;
  }
  .follow{
     text-align: center;
@@ -253,6 +253,9 @@ right: 20px;
     width: 20px;
     height: 20px;
     cursor: pointer;
+ }
+ .proposition-closse{
+   font-weight: 1000;
  }
  .check-following{
     display: flex;
@@ -305,6 +308,7 @@ right: 20px;
      width: 90%;
       margin: auto;
       position: relative;
+      padding-bottom: 60px;
   }
   .profile-menu-section{
    display: flex;
@@ -319,13 +323,21 @@ right: 20px;
   border-radius: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 15px;
-  padding-bottom: 20px;
+  padding-top: 25px;
+  padding-bottom: 30px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  height: 280px;
+  gap: 25px;
+  height: 310px;
   margin: auto;
+}
+.profile-menu-section1 img{
+   display: flex;
+   margin: auto;
+   width: 200px;
+   height: 140px !important;
+   object-fit: cover;
+   border-radius: 25px;
 }
 .profile-menu-section2{
    width: 95%;
@@ -334,7 +346,7 @@ right: 20px;
    padding-left: 10px;
    padding-right: 10px;
    padding-top: 15px;
-   padding-bottom: 20px;
+   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -378,17 +390,33 @@ right: 20px;
    right: 20px;
 
 }
+.children-check-following-right{
+   font-size: 18px;
+   padding: 8px;
+   text-align: center;
+   border-radius: 20px;
+   background: #fce9ef;
+   color: brown;
+   margin-right:20px ;
+   height: 13px;
+   line-height: 13px;
+   cursor: pointer;
+   font-weight: 500;
+}
 
 .suivre-followers{
    background:black;
    color: white;
-   font-size: 18px;
+   font-size: 16px;
    border-radius: 20px;
    padding: 10px;
-   text-align: center;
+   text-align: center !important;
    cursor: pointer;
-   padding-left: 25px;
-   padding-right: 25px;
+   padding-left: 15px;
+   padding-right: 15px;
+   position:fixed;
+   left:20px;
+   bottom: 27px;
 
 }
 #proposition{
@@ -406,14 +434,7 @@ right: 20px;
    flex-direction: column;
    gap: 20px;
 }
-.left-navbar{
-   position: absolute;
-   left: 0px;
-   top: 25px;
-   display: flex;
-   flex-direction: column;
-   gap: 15px;
-}
+
 
  }
  

@@ -1,10 +1,11 @@
-import { useState } from "react"
+
 import { CenterMain } from "../components/main/centermain/CenterMain"
 import { HeaderMain } from "../components/main/headermain/HeaderMain"
 import { LeftMain } from "../components/main/leftmain/LeftMain"
 import "../index.css"
 import { Footer } from "../components/footer/Footer"
 import { RightMain } from "../components/main/rightmain/RightMain"
+import { useState } from "react";
 
 
 export const Menu =()=>{
@@ -27,6 +28,7 @@ export const Menu =()=>{
             setBackground(false)
         }
       };
+     
     return(
         <>
     <div id="bloc-page-menu">

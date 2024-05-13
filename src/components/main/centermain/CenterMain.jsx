@@ -5,7 +5,6 @@ import music from "../../../assets/icons/music.svg";
 import cinema from "../../../assets/icons/cinema.svg";
 import suspension from "../../../assets/icons/suspension.svg";
 import events from "../../../assets/icons/events.svg";
-import messages from "../../../assets/icons/messages.svg";
 import close from "../../../assets/icons/close.svg";
 import alarms from "../../../assets/icons/alarms.svg";
 import calendar from "../../../assets/icons/calendar.svg";
@@ -22,8 +21,8 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { emogisArray } from "../../../helpers/emogis";
 import { setPostData } from "../../../appRedux/features/allPostSlice";
-import { formatTime } from "../../../helpers/formatTime";
 import { DisplayPosts } from "../../displayposts/DisplayPosts";
+import axios from "axios"
 export const CenterMain = () => {
       const [visible, setVisible] = useState(false);
       const [background, setBackground] = useState(false);
@@ -32,88 +31,68 @@ export const CenterMain = () => {
       const [file, setFile] = useState(null);
       const [emogis, setEmogis] = useState(false);
       const [postDatas, setPostDatas] = useState(useSelector(state => state.allPostDatas.allPostData));
-      const [selectedStickers, setSelectedStickers] = useState([]);
       const [inputValue, setInputValue] = useState("");
-      const userInfos = useSelector((state) => state?.userInfos);
-      let [firstIndexData, setFirstIndexData] = useState(0);
-      const [lastIndexData, setLastIndexData] = useState(3);
       const inputText = document.querySelector("#post-input-input");
       const dispatch = useDispatch();
-      const limiteObservationRef = useRef(null)
+      const [userInfos,setUserInfos] = useState(useSelector(state => state?.userInfos))
+      const [userId,setUserId] = useState(null)
+      const [firstIndex, setFirstIndex] = useState(0);
+      const [lastIndex, setLastIndex] = useState(1);
+      const lotSize = 2; // Nombre d'objets à charger à la fois
+     const totalLots = Math.ceil(postDatas?.length / lotSize);
+     console.log(totalLots)
+    
+     const containerUseref = useRef(null)
+      useEffect(()=>{
+          const fetchToken = async()=>{
+            await axios({
+              method:'get',
+              url:"http://localhost:3001/jwt",
+              withCredentials:true
+            }).then((response)=>{
+              setUserId(response?.data)
+            }).catch((err)=>console.log("no token"))
+          }
+          fetchToken()
+        },[userId])
+        console.log(userId)
+    useEffect(()=>{
+      if(userId){
+            fetch(`http://localhost:3001/api/infoinfocontrollers/${userId}`).then((response)=>{
+            return response.json()
+        }).then((result)=>{
+            return setUserInfos(result.data)
+        })
+        }
+
+    },[userId])
       
      
-      useEffect(() => {
-            fetch("https://changes-social.onrender.com/api/allpost")
+     /* useEffect(() => {
+      
+            fetch("http://localhost:3001/api/allpost")
             .then((response) => {
                   return response.json();
             })
             .then((result) => {
-                  console.log(result);
                   
                         dispatch(setPostData(result))
                         setPostDatas(result.allPostData) 
                                  
             });
-            console.log(postDatas)
-      }, [dispatch]);
-       const allPostData = useSelector(state => state.allPostDatas.allPostData);
-      console.log(allPostData)
-      console.log(postDatas)
+      }, [dispatch,loadedLots]);*/
+     // console.log(postDatas)
+      
      
-      /******debut de l intersection observer */
-      /*const loadMorePosts = (entries) => {
-            const dataNumber = 3
-            
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    // Load more posts here
-                    console.log("Load more posts");
-                    console.log(postDatas)
-                    console.log(firstIndexData)
-                    if(firstIndexData+dataNumber<postDatas?.length) {
-                        console.log(true)
-                        firstIndexData +=dataNumber 
-                        console.log(firstIndexData)
-                        let lastCurrentIndex = firstIndexData+dataNumber
-                             setFirstIndexData(firstIndexData)
-                             setLastIndexData(lastCurrentIndex)
-                             console.log(lastCurrentIndex)  
-              }
-                }
-            });
-        };*/
-     
-      /*useEffect(()=>{
-            const observer = new IntersectionObserver(loadMorePosts, {
-                  root: null,
-                  rootMargin: "0px",
-                  threshold: 0.1,
-              });
       
-              if (limiteObservationRef.current) {
-                  observer.observe(limiteObservationRef.current);
-              }
-      
-              return () => {
-                  if (limiteObservationRef.current) {
-                      observer.unobserve(limiteObservationRef.current);
-                  }
-              };
-
-      },[])
-      
-    
-    
- /*****fin de intersection observer probleme de longueur du post***** */
 
   
       function allPost(){
-            fetch("https://changes-social.onrender.com/api/allpost")
+            fetch("http://localhost:3001/api/allpost")
                   .then((response) => {
                         return response.json();
                   })
                   .then((result) => {
-                        console.log(result.allPostData);
                         return (
                               dispatch(setPostData(result.allPostData)),
                               setPostDatas(result.allPostData)
@@ -172,7 +151,6 @@ export const CenterMain = () => {
             display: "none",
       };
       const handleStickerClick = (sticker) => {
-            //setSelectedStickers([...selectedStickers, sticker]);
             setInputValue((prevValue) => prevValue + sticker);
       };
 
@@ -189,9 +167,11 @@ export const CenterMain = () => {
                   formData.append("message", inputText.value);
                   formData.append("photoProfil", userInfos.picture);
                   formData.append("name", userInfos.name);
+                 
                   try {
+                        console.log(formData);
                         const response = await fetch(
-                              "https://changes-social.onrender.com/api/postuser",
+                              "http://localhost:3001/api/postuser",
                               {
                                     method: "POST",
                                     body: formData,
@@ -201,24 +181,21 @@ export const CenterMain = () => {
                               throw new Error("echec du telechargement");
                         }
                         const data = await response.json();
-                        console.log("post reussi:", data);
                         if (data.message === "Publication réussie") {
                               
                                     alert("post reussi")
                                     setPostDonnes(false)
                                     setCheckPost(false)
-                                    allPost()
+                                    publierPost() 
                               
                              
                         } else if (
                               data.message === "Publication réussie sans photo"
                         ) {
-                              return (
-                                    alert("post reussi"),
-                                    setPostDonnes(false),
-                                    setCheckPost(false),
-                                    allPost()     
-                              )
+                                    alert("post reussi")
+                                    setPostDonnes(false)
+                                    setCheckPost(false)
+                                    publierPost()    
                         }
                   } catch (error) {
                         console.error(
@@ -231,6 +208,66 @@ export const CenterMain = () => {
                   alert("Vous n avez rien poste.");
             }
       };
+      
+     function publierPost (){
+      const option = {
+      root:null,
+      rootMargin:"0px",
+      threshold:1.0
+}
+      const containerUserefCurrent = containerUseref.current
+      allPost()
+      const observer = new IntersectionObserver((entries)=>{
+       entries.forEach((entry)=>{
+             if(entry.isIntersecting){
+                        setLastIndex((prevLots) => prevLots + 1);        
+             }
+             return;
+            
+             
+       })
+      },option);
+      if(containerUserefCurrent){
+       observer.observe(containerUserefCurrent)
+      }
+      return () =>{
+       if(containerUserefCurrent){
+             observer.unobserve(containerUserefCurrent)
+            }
+      }
+     }
+
+
+const option = {
+      root:null,
+      rootMargin:"0px",
+      threshold:1.0
+}
+     // debut intersection observer
+  useEffect(() => {
+      const containerUserefCurrent = containerUseref.current
+      allPost()
+      const observer = new IntersectionObserver((entries)=>{
+       entries.forEach((entry)=>{
+             if(entry.isIntersecting){
+                        setLastIndex((prevLots) => prevLots + 1);        
+             }
+             return;
+            
+             
+       })
+      },option);
+      if(containerUserefCurrent){
+       observer.observe(containerUserefCurrent)
+      }
+      return () =>{
+       if(containerUserefCurrent){
+             observer.unobserve(containerUserefCurrent)
+            }
+      }
+     
+    }, []);
+    //fin intersection observer
       return (
             <>
                   {postDonnes && (
@@ -434,7 +471,9 @@ export const CenterMain = () => {
                                           onClick={handleClick}
                                     />
                               </div>
-                              <DisplayPosts newPostDatas ={postDatas} firstData={firstIndexData} lastData ={lastIndexData}/>
+                              
+                              <DisplayPosts newPostDatas ={postDatas}  firstData={firstIndex} lastData={lastIndex}/>
+                              <div  id="limiteObservation" ref={containerUseref}>.....</div> 
                              
                         </div>
                         <div
