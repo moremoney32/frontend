@@ -38,7 +38,6 @@ export const CenterMain = () => {
       const [userId,setUserId] = useState(null)
       const [firstIndex, setFirstIndex] = useState(0);
       const [lastIndex, setLastIndex] = useState(1);
-      const lotSize = 2; // Nombre d'objets à charger à la fois
      const totalLots = Math.ceil(postDatas?.length / lotSize);
      console.log(totalLots)
     
