@@ -6,8 +6,7 @@ export function fetchData(url,data){
         'Content-Type': 'application/json', 
       }, 
       
-      body: JSON.stringify(data),
-      credentials:"include"
+      body: JSON.stringify(data)
     };
 
       fetch(url,dataToSend).then((response)=>{
