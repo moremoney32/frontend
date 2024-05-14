@@ -3,18 +3,33 @@ import chatter from "../../icons/chatter.svg"
 import people from "../../icons/people.svg"
 import { useSelector } from "react-redux"
 import { useEffect, useState } from "react";
+import axios from "axios"
 export const HeaderMenu = ()=>{
     const [userInfos,setUserInfos] = useState(useSelector(state => state?.userInfos))
-    const userId = localStorage.getItem("id")
+    const [userId,setUserId] = useState(null)
     useEffect(()=>{
-        fetch(`http://localhost:3001/api/infoinfocontrollers/${userId}`).then((response)=>{
+        const fetchToken = async()=>{
+          await axios({
+            method:'get',
+            url:"https://changes-social.onrender.com/jwt",
+            withCredentials:true
+          }).then((response)=>{
+            setUserId(response?.data)
+          }).catch((err)=>console.log("no token"))
+        }
+        fetchToken()
+      },[userId])
+    useEffect(()=>{
+        if(userId){
+            fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response)=>{
             return response.json()
         }).then((result)=>{
-            console.log(result.data)
             return setUserInfos(result.data)
         })
+        }
 
-    },[])
+    },[userId])
+   
    
     return(
     <div className="parent-header">

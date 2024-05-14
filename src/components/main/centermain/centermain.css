@@ -561,6 +561,7 @@
     top: 7px;
 }
 
+
 .letter {
     width: 20px;
     height: 20px;
@@ -926,9 +927,56 @@
         width: 70%;
     }
     /***POST RESPONSIVE****/
+    #space-comment{
+        position: relative;
+        padding: 10px;
+        width: 90%;
+      }
+      .space-comment-header{
+        display: none;
+      }
+      .sous-section2-1-2-child5 {
+        position: relative;
+        padding-left: 10px;
+        padding-right: 12px;
+        padding-bottom: 10px;
+        width: 80%;
+    }
+    #music-icons {
+        position: absolute;
+        right: 0px;
+        top: 5px;
+        cursor: pointer;
+    }
+    .cinema-icons {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        width: 50px;
+        height: 25px;
+        object-fit: cover;
+        cursor: pointer;
+        background: transparent;
+    }
+      
+   
+    .sous-section2-1-2-child4-icons {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        position: absolute;
+        bottom: 0px;
+        z-index:2500 !important;
+    }
     .sous-section2-1-2-child4-img{
         display: none;
     }
+    .contain-comment-name{
+        color: black;
+        font-weight: 800;
+        font-size: 15px;
+        text-align: left;
+      }
     .section2.black-mobile-commande-right{
         background:black !important;
         position: absolute;
@@ -1014,8 +1062,50 @@
         line-height: 20px;  
     }
      
-     
+   /***css des commentaires***/  
   
+   #page-comment{
+    background:#fff;
+    position: fixed;
+    width:90%;
+    border-radius: 10px;
+    top: 10%;
+    left: 20px;
+    height: 350px;
+    z-index:5000;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+#header-comment{
+    background: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid darkgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     
+}
+#header-comment p{
+    font-size: 15px;
+    color: black;
+    font-weight: 600;
+}
+.close-comment{
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    padding: 10px;
+    background: darkgray;
+    border-radius: 50%;
+    text-align: center;
+    transform: translate3d(0,-15px,0);
+
+  }
 
 }

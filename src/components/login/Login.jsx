@@ -36,12 +36,11 @@ export const Login = ()=>{
         NewErrors.password = "miniscule,majuscule,chiffre,caractere special,au moins 8 lettres"
       }
       setError(NewErrors)
-      console.log(formData)
       setConnect(false)
       setLoading(true)
       fetchData("https://changes-social.onrender.com/api/login",formData).then((result)=>{
+        //https://changes-social.onrender.com
        
-        console.log(result)
           
           if(result.message === "connexion reussi"){
             return snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.message, 5000),navigate("/profile")
@@ -55,7 +54,7 @@ export const Login = ()=>{
           
          })
          .catch((error) => {
-          console.log({message:error.message});
+          //console.log({message:error.message});
           
         }).finally(()=>{
           setLoading(false)
@@ -72,7 +71,6 @@ export const Login = ()=>{
     const navigate = useNavigate();
     
     const onSubmit = (data) => {
-        console.log(data)
         setConnect(false)
         setLoading(true)
         fetchData("https://changes-social.onrender.com/api/login",data).then((result)=>{

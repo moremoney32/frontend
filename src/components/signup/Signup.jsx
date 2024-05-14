@@ -15,12 +15,12 @@ export const Signup = ()=>{
     const [loading, setLoading] = useState(false);
     const [connect, setConnect] = useState(true);
     const [formData,setFormData] = useState({
-      pseudo:"",
+      name:"",
       email:"",
       password:""
     })
     const [error,setError] = useState({
-      pseudo:"",
+      name:"",
       email:"",
       password:""
     })
@@ -69,13 +69,12 @@ const handleSubmitMobile = (e)=>{
     NewErrors.password = "miniscule,majuscule,chiffre,caractere special,au moins 8 lettres"
   }
   setError(NewErrors)
-  console.log(formData)
   setLoading(true)
         setConnect(false)
        
         fetchData("https://changes-social.onrender.com/api/signup",formData).then((result)=>{
+         // https://changes-social.onrender.com
          
-          console.log(result)
             
             if(result.message === "Utilisateur créé avec succès"){
               return snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.message, 5000),navigate("/login")
@@ -91,7 +90,7 @@ const handleSubmitMobile = (e)=>{
             }
            })
            .catch((error) => {
-            console.log({message:error.message});
+            //console.log({message:error.message});
             
           }).finally(()=>{
             setLoading(false)
@@ -106,16 +105,14 @@ const handleChange = (e)=>{
      
  
     const onSubmit = (data) => {
-        console.log(data)
         setLoading(true)
         setConnect(false)
        
         fetchData("https://changes-social.onrender.com/api/signup",data).then((result)=>{
          
-          console.log(result)
             
             if(result.message === "Utilisateur créé avec succès"){
-              return snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.message, 5000),localStorage.setItem("id",result.userId),navigate("/login")
+              return snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.message, 5000),navigate("/login")
             }
             else if(result.messageError === 'cet email existe deja veuillez changer d adresse'){
                snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.messageError, 5000)
@@ -126,7 +123,7 @@ const handleChange = (e)=>{
             
            })
            .catch((error) => {
-            console.log({message:error.message});
+           // console.log({message:error.message});
             
           }).finally(()=>{
             setLoading(false)
@@ -150,12 +147,12 @@ const handleChange = (e)=>{
               {error.email && <span className="error">{error.email}</span>}
             </div>
             <div className="space-form">
-              <label htmlFor="pseudo">Name</label>
-              <input type="text"  name="pseudo" 
-              value={formData.pseudo}
+              <label htmlFor="name">Name</label>
+              <input type="text"  name="name" 
+              value={formData.name}
               onChange={handleChange}
              />
-              {error.pseudo && <span className="error">{error.pseudo}</span>}
+              {error.pseudo && <span className="error">{error.name}</span>}
             </div>
             <div className="space-form">
               <label htmlFor="password">Password</label>

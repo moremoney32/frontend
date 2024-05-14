@@ -2,38 +2,33 @@ import { useSelector } from "react-redux";
 import barMaise from "../../../assets/icons/barMaise.svg";
 import maise from "../../../assets/icons/maise.svg";
 import messages from "../../../assets/icons/messages.svg";
-import axios from "axios"
 import { useEffect, useState } from "react";
+import axios from "axios"
 export const HeaderMainMobile = ({handleClick}) => {
     const [userInfos,setUserInfos] = useState(useSelector(state => state?.userInfos))
-    const[userId,setUserId] = useState(null)
-  
+    const [userId,setUserId] = useState(null)
     useEffect(()=>{
-      const fetchToken = async()=>{
-        await axios({
-          method:'get',
-          url:"http://localhost:3001/jwt",
-          withCredentials:true
-        }).then((response)=>{
-          console.log(response)
-          setUserId(response?.data)
-        }).catch((err)=>console.log("no token"))
-      }
-      fetchToken()
-    },[userId])
-   
-  
-    useEffect(() => {
-      if(userId){
-        fetch(`http://localhost:3001/api/infoinfocontrollers/${userId}`).then((response) => {
-          return response.json()
-        }).then((result) => {
-          console.log(result.data)
-          return dispatch(setUser(result.data)), setUserInfos(result.data)
+        const fetchToken = async()=>{
+          await axios({
+            method:'get',
+            url:"https://changes-social.onrender.com/jwt",
+            withCredentials:true
+          }).then((response)=>{
+            setUserId(response?.data)
+          }).catch((err)=>console.log("no token"))
+        }
+        fetchToken()
+      },[userId])
+    useEffect(()=>{
+        if(userId){
+            fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response)=>{
+            return response.json()
+        }).then((result)=>{
+            return setUserInfos(result.data)
         })
-      }
-      
-    }, [userId])
+        }
+
+    },[userId])
       return (
             <div id="main-mobile-header">
                   <div className="main-left-mobile">

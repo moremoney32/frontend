@@ -1,357 +1,151 @@
 .profile-menu{
-    padding-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 900px;
-    margin: auto;
-    position: relative;
+   padding-top: 30px;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   padding-left: 20px;
+   padding-right: 20px;
+   width: 900px;
+   margin: auto;
+   position: relative;
 }
 .profile-menu-h1{
-    margin: auto;
-    padding-top: 10px;
+   margin: auto;
+   padding-top: 10px;
 }
 .suivre-followers{
-   background:black;
-   color: white;
-   font-size: 20px;
-   border-radius: 20px;
-   padding: 10px;
-   text-align: center;
-   cursor: pointer;
-   padding-left: 25px;
-   padding-right: 25px;
+  background:black;
+  color: white;
+  font-size: 20px;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  padding-left: 25px;
+  padding-right: 25px;
 
 }
 .suivant{
-   background:brown;
-   color:white;
-   font-size: 18px;
-   font-weight: 800;
-   border-radius: 20px;
-   padding: 10px;
-   text-align: center;
-   cursor: pointer;
-   padding-left: 25px;
-   padding-right: 25px;
+  background:brown;
+  color:white;
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  padding-left: 25px;
+  padding-right: 25px;
 position: absolute;
 right: 20px;
 
 }
 .left-navbar{
-    position: absolute;
-    left: 20px;
-    top: 35px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-.left-navbar img{
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-.profile-menu-section{
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
-.profile-menu-section1{
-   width: 50%;
-   background:brown;
-   border-radius: 10px;
-   padding-left: 30px;
-   padding-right: 30px;
-   padding-top: 25px;
-   padding-bottom: 50px;
+   position: absolute;
+   left: 20px;
+   top: 35px;
    display: flex;
    flex-direction: column;
    gap: 15px;
-   height: 380px;
 }
-.profile-menu-section1 img{
-    display: flex;
-    margin: auto;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 25px;
+.left-navbar img{
+   width: 20px;
+   height: 20px;
+   cursor: pointer;
 }
-.profile-menu-section1-h3{
-    font-size: 22px;
-    margin: auto;
-    color: white;
-}
-/*.custom-file-input input[type="file"] {
-    display: none;
-}*/
-
-/*.custom-file-input {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    margin: auto;
-}*/
-
-.custom-file-input input[type="file"] {
-    position: absolute;
-    font-size: 100px;
-    right: 0;
-    top: 0;
-    opacity: 0;
-    cursor: pointer;
-    width: 300px;
-}
-.update-image{
-    width: 250px;
-    text-align: center;
-    border-radius: 20px;
-    color: #fafafa;
-    border: none;
-    cursor: pointer;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin: auto;
-    background: black;
-    font-size: 18px;
-
-}
-.send-image{
-    width: 250px;
-    text-align: center;
-    border-radius: 20px;
-    color:white;
-    border: none;
-    cursor: pointer;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin: auto;
-   background:black;
-    font-size: 20px;
-    display: inline-block;
-
-}
-
-.profile-menu-section2{
-    width: 50%;
-    background:brown;
-    border-radius: 10px;
-    padding-left: 30px;
-   padding-right: 30px;
-   padding-top: 15px;
-   padding-bottom: 50px;
+.profile-menu-section{
    display: flex;
-   flex-direction: column;
-   gap: 25px;
-   height: 400px;
- }
- .profile-menu-section2-parent-input{
-    position: relative;
-    height: 100px;
-    border: 1px solid brown;
-    border-radius:25px 20px 5px 10px ;
- }
- .profile-menu-section2-h2{
-    margin: auto;
-    font-size: 22px;
-    color: white;
- }
- .profile-menu-section2-input{
-    position: absolute;
-    top: 10px;
-    left: 35%;
-    border: none;
-    background:#fce9ef;
-    font-size: 18px;
-    color: black;
-    outline: none;
- }
- .parent-edit{
-    position: relative;
- }
- .edit-bio{
-    position: absolute;
-    right: 0;
-    border-radius: 10px 5px 20px 10px;
-    text-align: center;
-    color: white;
-    background: black;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 15px;
- }
- .parent-time{
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
- }
- .date-time{
-    margin: auto;
- }
- .date-time-h4-2{
-    margin: auto;
-    width: 100px;
-    transform: translate3d(0,-10px,0);
- }
- h4{
-    font-size: 18px;
-    color: white;
- }
- .parent-follow{
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
- }
- .follow{
-    text-align: center;
-    color:black;
-    padding: 12px;
-    background: #04BFBF;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 1000;
- }
- #masque{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background:black;
-    opacity: 0.2;
-    z-index: 5;
- }
- #proposition{
-    position: absolute;
-    top: 20%;
-    left: 25%;
-    background:rosybrown !important;
-    width: 500px;
-    border-radius: 10px;
-    z-index: 25;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
- }
- .sous-parent-proposition{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transform: translate3d(0,-20px,0);
- }
- .sous-parent-proposition h5{
-    font-size: 22px;
- }
- .proposition-close{
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
- }
- .proposition-closse{
-   font-weight: 1000;
- }
- .check-following{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    overflow-y: auto;
-    transform: translate3d(0,-40px,0);
-    height: 300px;
- }
- .children-check-following{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
- }
- .children-check-following-left{
-    display: flex;
-    align-items: center;
-    gap: 10px;
- }
- .children-check-following-left img{
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 30%;
- }
- .children-check-following-left span{
-    font-size: 23px;
-    color: black;
-    font-weight: 500;
- }
- .children-check-following-right{
-    font-size: 22px;
-    padding: 10px;
-    text-align: center;
-    border-radius: 20px;
-    background: #fce9ef;
-    color: brown;
-    margin-right:20px ;
-    height: 15px;
-    line-height: 15px;
-    cursor: pointer;
-    font-weight: 500;
- }
- @media screen and (max-width:767px) {
-   .profile-menu{
-      padding-top: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-     width: 90%;
-      margin: auto;
-      position: relative;
-      padding-bottom: 60px;
-  }
-  .profile-menu-section{
-   display: flex;
-   flex-direction: column;
    gap: 30px;
-   margin: auto;
-   width: 95%;
+   align-items: center;
 }
 .profile-menu-section1{
-  width: 95%;
+  width: 50%;
   background:brown;
   border-radius: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
   padding-top: 25px;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  height: 310px;
-  margin: auto;
+  gap: 15px;
+  height: 380px;
 }
 .profile-menu-section1 img{
    display: flex;
    margin: auto;
    width: 200px;
-   height: 140px !important;
+   height: 200px;
    object-fit: cover;
    border-radius: 25px;
 }
+.profile-menu-section1-h3{
+   font-size: 22px;
+   margin: auto;
+   color: white;
+}
+/*.custom-file-input input[type="file"] {
+   display: none;
+}*/
+
+/*.custom-file-input {
+   position: relative;
+   overflow: hidden;
+   display: inline-block;
+   margin: auto;
+}*/
+
+.custom-file-input input[type="file"] {
+   position: absolute;
+   font-size: 100px;
+   right: 0;
+   top: 0;
+   opacity: 0;
+   cursor: pointer;
+   width: 300px;
+}
+.update-image{
+   width: 250px;
+   text-align: center;
+   border-radius: 20px;
+   color: #fafafa;
+   border: none;
+   cursor: pointer;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   margin: auto;
+   background: black;
+   font-size: 18px;
+
+}
+.send-image{
+   width: 250px;
+   text-align: center;
+   border-radius: 20px;
+   color:white;
+   border: none;
+   cursor: pointer;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   margin: auto;
+  background:black;
+   font-size: 20px;
+   display: inline-block;
+
+}
+
 .profile-menu-section2{
-   width: 95%;
+   width: 50%;
    background:brown;
    border-radius: 10px;
-   padding-left: 10px;
-   padding-right: 10px;
-   padding-top: 15px;
-   padding-bottom: 40px;
+   padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  height: 380px;
-  margin: auto;
+  gap: 25px;
+  height: 400px;
 }
 .profile-menu-section2-parent-input{
    position: relative;
@@ -359,83 +153,303 @@ right: 20px;
    border: 1px solid brown;
    border-radius:25px 20px 5px 10px ;
 }
+.profile-menu-section2-h2{
+   margin: auto;
+   font-size: 22px;
+   color: white;
+}
 .profile-menu-section2-input{
    position: absolute;
    top: 10px;
-   left: 10px;
+   left: 35%;
    border: none;
    background:#fce9ef;
    font-size: 18px;
    color: black;
    outline: none;
-   width: 90%;
 }
-.profile-menu-h1{
-   margin: auto;
-   padding-top: 10px;
-   font-size: 25px;
+.parent-edit{
+   position: relative;
 }
-.suivant{
-   background:brown;
-   color:white;
-   font-size: 16px;
-   font-weight: 800;
-   border-radius: 20px;
-   padding: 10px;
-   text-align: center;
-   cursor: pointer;
-   padding-left: 25px;
-   padding-right: 25px;
+.edit-bio{
    position: absolute;
-   right: 20px;
-
+   right: 0;
+   border-radius: 10px 5px 20px 10px;
+   text-align: center;
+   color: white;
+   background: black;
+   padding: 10px;
+   cursor: pointer;
+   font-size: 15px;
+}
+.parent-time{
+   padding-top: 20px;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+.date-time{
+   margin: auto;
+}
+.date-time-h4-2{
+   margin: auto;
+   width: 100px;
+   transform: translate3d(0,-10px,0);
+}
+h4{
+   font-size: 18px;
+   color: white;
+}
+.parent-follow{
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+}
+.follow{
+   text-align: center;
+   color:black;
+   padding: 12px;
+   background: #04BFBF;
+   border-radius: 20px;
+   cursor: pointer;
+   font-size: 18px;
+   font-weight: 1000;
+}
+#masque{
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background:black;
+   opacity: 0.2;
+   z-index: 5;
+}
+#proposition{
+   position: absolute;
+   top: 20%;
+   left: 25%;
+   background:rosybrown !important;
+   width: 500px;
+   border-radius: 10px;
+   z-index: 25;
+   padding: 10px;
+   padding-left: 20px;
+   padding-right: 20px;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+.sous-parent-proposition{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   transform: translate3d(0,-20px,0);
+}
+.sous-parent-proposition h5{
+   font-size: 22px;
+}
+.proposition-close{
+   width: 20px;
+   height: 20px;
+   cursor: pointer;
+}
+.proposition-closse{
+  font-weight: 1000;
+}
+.check-following{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   overflow-y: auto;
+   transform: translate3d(0,-40px,0);
+   height: 300px;
+}
+.children-check-following{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.children-check-following-left{
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+.children-check-following-left img{
+   width: 70px;
+   height: 70px;
+   object-fit: cover;
+   border-radius: 30%;
+}
+.children-check-following-left span{
+   font-size: 23px;
+   color: black;
+   font-weight: 500;
 }
 .children-check-following-right{
-   font-size: 18px;
-   padding: 8px;
+   font-size: 22px;
+   padding: 10px;
    text-align: center;
    border-radius: 20px;
    background: #fce9ef;
    color: brown;
    margin-right:20px ;
-   height: 13px;
-   line-height: 13px;
+   height: 15px;
+   line-height: 15px;
    cursor: pointer;
    font-weight: 500;
 }
+@media screen and (max-width:767px) {
+  .profile-menu{
+     padding-top: 30px;
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+    width: 90%;
+     margin: auto;
+     position: relative;
+     padding-bottom: 500px;
+ }
+ .profile-menu-section{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: auto;
+  width: 95%;
+}
+.profile-menu-section1{
+ width: 95%;
+ background:brown;
+ border-radius: 10px;
+ padding-left: 10px;
+ padding-right: 10px;
+ padding-top: 25px;
+ padding-bottom: 30px;
+ display: flex;
+ flex-direction: column;
+ gap: 25px;
+ height: 310px;
+ margin: auto;
+}
+.profile-menu-section1 img{
+  display: flex;
+  margin: auto;
+  width: 200px;
+  height: 140px !important;
+  object-fit: cover;
+  border-radius: 25px;
+}
+.profile-menu-section2{
+  width: 95%;
+  background:brown;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
+  padding-bottom: 40px;
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+ height: 380px;
+ margin: auto;
+}
+.profile-menu-section2-parent-input{
+  position: relative;
+  height: 100px;
+  border: 1px solid brown;
+  border-radius:25px 20px 5px 10px ;
+}
+.profile-menu-section2-input{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: none;
+  background:#fce9ef;
+  font-size: 18px;
+  color: black;
+  outline: none;
+  width: 90%;
+}
+.profile-menu-h1{
+  margin: auto;
+  padding-top: 10px;
+  font-size: 25px;
+}
+.suivant{
+  background:brown;
+  color:white;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  padding-left: 25px;
+  padding-right: 25px;
+  position: absolute;
+  right: 20px;
 
+}
+.children-check-following-right{
+  font-size: 18px;
+  padding: 8px;
+  text-align: center;
+  border-radius: 20px;
+  background: #fce9ef;
+  color: brown;
+  margin-right:20px ;
+  height: 13px;
+  line-height: 13px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/*.suivre-followers{
+  background:black;
+  color: white;
+  font-size: 16px;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center !important;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 15px;
+  position:fixed;
+  left:20px;
+  bottom: 27px;
+  z-index: 54;
+}*/
 .suivre-followers{
-   background:black;
-   color: white;
-   font-size: 16px;
-   border-radius: 20px;
-   padding: 10px;
-   text-align: center !important;
-   cursor: pointer;
-   padding-left: 15px;
-   padding-right: 15px;
-   position:fixed;
-   left:20px;
-   bottom: 27px;
-
+  background:black;
+  color: white;
+  font-size: 16px;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center !important;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 15px;
+  position:fixed;
+  left:20px;
+  bottom: 40%;
+  z-index: 100;
 }
 #proposition{
-   position: absolute;
-   top:20px;
-   left:0px;
-   background:rosybrown !important;
-   width:90%;
-   border-radius: 10px;
-   z-index: 45;
-   padding: 10px;
-   padding-left: 10px;
-   padding-right: 10px;
-   display: flex;
-   flex-direction: column;
-   gap: 20px;
+  position: absolute;
+  top:20px;
+  left:0px;
+  background:rosybrown !important;
+  width:90%;
+  border-radius: 10px;
+  z-index: 100;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 
- }
- 
- 
+}
+

@@ -11,7 +11,7 @@ export const PageLogin = ()=>{
       const fetchToken = async()=>{
         await axios({
           method:'get',
-          url:"http://localhost:3001/jwt",
+          url:"https://changes-social.onrender.com/jwt",
           withCredentials:true
         }).then((response)=>{
           console.log(response)

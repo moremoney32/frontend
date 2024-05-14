@@ -47,7 +47,7 @@ export const CenterMain = () => {
           const fetchToken = async()=>{
             await axios({
               method:'get',
-              url:"http://localhost:3001/jwt",
+              url:"https://changes-social.onrender.com/jwt",
               withCredentials:true
             }).then((response)=>{
               setUserId(response?.data)
@@ -55,10 +55,10 @@ export const CenterMain = () => {
           }
           fetchToken()
         },[userId])
-        console.log(userId)
+       // console.log(userId)
     useEffect(()=>{
       if(userId){
-            fetch(`http://localhost:3001/api/infoinfocontrollers/${userId}`).then((response)=>{
+            fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response)=>{
             return response.json()
         }).then((result)=>{
             return setUserInfos(result.data)
@@ -68,27 +68,12 @@ export const CenterMain = () => {
     },[userId])
       
      
-     /* useEffect(() => {
-      
-            fetch("http://localhost:3001/api/allpost")
-            .then((response) => {
-                  return response.json();
-            })
-            .then((result) => {
-                  
-                        dispatch(setPostData(result))
-                        setPostDatas(result.allPostData) 
-                                 
-            });
-      }, [dispatch,loadedLots]);*/
-     // console.log(postDatas)
-      
      
       
 
   
       function allPost(){
-            fetch("http://localhost:3001/api/allpost")
+            fetch("https://changes-social.onrender.com/api/allpost")
                   .then((response) => {
                         return response.json();
                   })
@@ -171,7 +156,7 @@ export const CenterMain = () => {
                   try {
                         console.log(formData);
                         const response = await fetch(
-                              "http://localhost:3001/api/postuser",
+                              "https://changes-social.onrender.com/api/postuser",
                               {
                                     method: "POST",
                                     body: formData,
