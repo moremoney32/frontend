@@ -43,7 +43,7 @@ export const ProfileMenu = () => {
   console.log(userId)
   useEffect(() => {
     
-    if(userId){
+    if(userId !== null){
       setLoading(false)
       fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((result)=>{
         console.log(result.data)
