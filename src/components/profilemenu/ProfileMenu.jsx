@@ -39,8 +39,9 @@ export const ProfileMenu = () => {
           setLoading(false)
           setUserId(response?.data)
           console.log(true)
-          fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((result)=>{
+          fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${response?.data}`).then((result)=>{
             console.log(result.data)
+            console.log("toucher")
             return dispatch(setUser(result.data)), setUserInfos(result.data)
           })
         }
