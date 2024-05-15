@@ -38,15 +38,29 @@ export const ProfileMenu = () => {
     fetchToken()
   },[userId])
  
-
+  console.log(userId)
   useEffect(() => {
+    
     if(userId){
-      fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response) => {
+     // const fetchToken = async()=>{
+        axios({
+          method:'get',
+          url:`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`,
+          withCredentials:true
+        }).then((response)=>{
+          console.log(response)
+          console.log(response.data)
+        return dispatch(setUser(response.data)), setUserInfos(response.data)
+          
+        }).catch((err)=>console.log("no token"))
+      //}
+      //fetchToken()
+      /*fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response) => {
         return response.json()
       }).then((result) => {
         console.log(result.data)
         return dispatch(setUser(result.data)), setUserInfos(result.data)
-      })
+      })*/
     }
     
   }, [userId])
