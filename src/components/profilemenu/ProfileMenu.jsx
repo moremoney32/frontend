@@ -24,6 +24,7 @@ export const ProfileMenu = () => {
   const[userId,setUserId] = useState(null)
   const [lock, setLock] = useState(true);
   const [connect, setConnect] = useState(true);
+  const [loading, setLoading] = useState(true);
   
   useEffect(()=>{
     const fetchToken = async()=>{
@@ -43,6 +44,7 @@ export const ProfileMenu = () => {
   useEffect(() => {
     
     if(userId){
+      setLoading(false)
       fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then(()=>{
         console.log(result.data)
         return dispatch(setUser(result.data)), setUserInfos(result.data)
@@ -259,7 +261,8 @@ export const ProfileMenu = () => {
 
 
   return (
-
+    <>
+    {loading?(<div>CHARGEMENT...........</div>):(
     <div className="profile-menu">
     {masque && <div id="masque"></div>}
     {/*div en absolute qui montre les propositions*/}
@@ -441,6 +444,7 @@ export const ProfileMenu = () => {
 
     </div>
     <NavLink to="/menu"><span className="suivant">Suivant</span></NavLink>
-  </div>
+  </div>)}
+  </>
   )
 }
