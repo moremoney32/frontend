@@ -45,6 +45,9 @@ export const ProfileMenu = () => {
     
     if(userId !== null){
       setLoading(false)
+      alert(true)
+      alert(userId)
+      console.log(true)
       fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((result)=>{
         console.log(result.data)
         return dispatch(setUser(result.data)), setUserInfos(result.data)
