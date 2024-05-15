@@ -8,6 +8,7 @@ import { setUserData } from "../../appRedux/features/allUserSlice"
 import { formatTime } from "../../helpers/formatTime";
 import { NavLink } from "react-router-dom";
 import axios from "axios"
+import { fetchToken } from "../../helpers/fetchToken";
 
 
 export const ProfileMenu = () => {
@@ -42,19 +43,10 @@ export const ProfileMenu = () => {
   useEffect(() => {
     
     if(userId){
-     // const fetchToken = async()=>{
-        axios({
-          method:'get',
-          url:`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`,
-          withCredentials:true
-        }).then((response)=>{
-          console.log(response)
-          console.log(response.data)
-        return dispatch(setUser(response.data)), setUserInfos(response.data)
-          
-        }).catch((err)=>console.log("no token"))
-      //}
-      //fetchToken()
+      fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then(()=>{
+        console.log(result.data)
+        return dispatch(setUser(result.data)), setUserInfos(result.data)
+      })
       /*fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response) => {
         return response.json()
       }).then((result) => {
@@ -67,12 +59,16 @@ export const ProfileMenu = () => {
   console.log(userInfos)
   const handleAllUsers = () => {
     setMasque(true)
-    fetch("https://changes-social.onrender.com/api").then((response) => {
+    fetchToken("https://changes-social.onrender.com/api").then((result)=>{
+        console.log(result)
+        return dispatch(setUserData(result))
+      })
+    /*fetch("https://changes-social.onrender.com/api").then((response) => {
       return response.json()
     }).then((result) => {
       //console.log(result)
       return dispatch(setUserData(result))
-    })
+    })*/
   }
   const allDatas = useSelector(state => state?.allUserDatas)
   //console.log(allDatas.allUserData)
@@ -89,7 +85,9 @@ export const ProfileMenu = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(inputValue)
+        body: JSON.stringify(inputValue),
+        credentials: "include"
+
       });
       if (!response.ok) {
         throw new Error('echec de l envoi');
@@ -136,7 +134,8 @@ export const ProfileMenu = () => {
       try {
         const response = await fetch('https://changes-social.onrender.com/api/upload', {
           method: 'POST',
-          body: formData
+          body: formData,
+          credentials: "include"
         });
         if (!response.ok) {
           throw new Error('echec du telechargement');
@@ -166,7 +165,8 @@ export const ProfileMenu = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(followingValue)
+        body: JSON.stringify(followingValue),
+        credentials: "include"
       });
       if (!response.ok) {
         throw new Error('echec de l envoi');
@@ -192,7 +192,8 @@ export const ProfileMenu = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(followingValue)
+        body: JSON.stringify(followingValue),
+        credentials: "include"
       });
       if (!response.ok) {
         throw new Error('echec de l envoi');
@@ -210,13 +211,15 @@ export const ProfileMenu = () => {
   }
   const closeArrayFollower = () => {
     //setClosse(false)
-
-    fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userInfos._id}`).then((response) => {
+    fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${userInfos._id}`).then((result) =>{
+      return dispatch(setUser(result.data)), setMasque(false), setEtatFollowing(false), setEtatFollowers(false), setUserInfos(result.data), console.log(userInfos)
+    })
+    /*fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userInfos._id}`).then((response) => {
       return response.json()
     }).then((result) => {
       //console.log(result.data)
       return dispatch(setUser(result.data)), setMasque(false), setEtatFollowing(false), setEtatFollowers(false), setUserInfos(result.data), console.log(userInfos)
-    })
+    })*/
   }
   const removeStatutFollow = async (e, userId) => {
     e.target.textContent = "Desabonnés";
@@ -228,7 +231,8 @@ export const ProfileMenu = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(followingValue)
+        body: JSON.stringify(followingValue),
+        credentials: "include"
       });
       if (!response.ok) {
         throw new Error('echec de l envoi');
