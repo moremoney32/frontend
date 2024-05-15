@@ -34,14 +34,23 @@ export const ProfileMenu = () => {
         withCredentials:true
       }).then((response)=>{
         //console.log(response)
-        setUserId(response?.data)
+        
+        if(response?.data){
+          setLoading(false)
+          setUserId(response?.data)
+          console.log(true)
+          fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((result)=>{
+            console.log(result.data)
+            return dispatch(setUser(result.data)), setUserInfos(result.data)
+          })
+        }
       }).catch((err)=>console.log("no token"))
     }
     fetchToken()
   },[userId])
  
   console.log(userId)
-  useEffect(() => {
+ /* useEffect(() => {
     
     if(userId !== null){
       setLoading(false)
@@ -57,10 +66,10 @@ export const ProfileMenu = () => {
       }).then((result) => {
         console.log(result.data)
         return dispatch(setUser(result.data)), setUserInfos(result.data)
-      })*/
+      })
     }
     
-  }, [userId])
+  }, [userId])*/
   console.log(userInfos)
   const handleAllUsers = () => {
     setMasque(true)
