@@ -33,12 +33,12 @@ export const ProfileMenu = () => {
         url:"https://changes-social.onrender.com/jwt",
         withCredentials:true
       }).then((response)=>{
-        //console.log(response)
+        console.log(response)
         
         if(response?.data){
           //setLoading(false)
           setUserId(response?.data)
-         // console.log(true)
+          console.log(true)
           fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${response?.data}`).then((result)=>{
             console.log(result.data)
             console.log("toucher")
@@ -50,7 +50,7 @@ export const ProfileMenu = () => {
     fetchToken()
   },[userId])
  
-  //console.log(userId)
+  console.log(userId)
  /* useEffect(() => {
     
     if(userId !== null){
