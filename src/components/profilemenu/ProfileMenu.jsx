@@ -44,13 +44,13 @@ export const ProfileMenu = () => {
       fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response) => {
         return response.json()
       }).then((result) => {
-        //console.log(result.data)
+        console.log(result.data)
         return dispatch(setUser(result.data)), setUserInfos(result.data)
       })
     }
     
   }, [userId])
-  //console.log(userInfos)
+  console.log(userInfos)
   const handleAllUsers = () => {
     setMasque(true)
     fetch("https://changes-social.onrender.com/api").then((response) => {
