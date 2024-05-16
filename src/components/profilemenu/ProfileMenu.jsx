@@ -30,7 +30,7 @@ export const ProfileMenu = () => {
     const fetchToken = async()=>{
       await axios({
         method:'get',
-        url:"https://changes-social.onrender.com/api/jwt",
+        url:"https://changes-social.onrender.com/jwt",
         withCredentials:true
       }).then((resolve)=>{
         console.log(resolve)

@@ -11,7 +11,7 @@ export const HeaderMainMobile = ({handleClick}) => {
         const fetchToken = async()=>{
           await axios({
             method:'get',
-            url:"https://changes-social.onrender.com/api/jwt",
+            url:"https://changes-social.onrender.com/jwt",
             withCredentials:true
           }).then((resolve)=>{
             if(resolve?.userId){

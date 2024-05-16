@@ -18,7 +18,7 @@ export const HeaderMain = ({handle})=>{
       const fetchToken = async()=>{
         await axios({
           method:'get',
-          url:"https://changes-social.onrender.com/api/jwt",
+          url:"https://changes-social.onrender.com/jwt",
           withCredentials:true
         }).then((resolve)=>{
          // setUserId(response?.data)
