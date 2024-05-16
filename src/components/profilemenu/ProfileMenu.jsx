@@ -41,8 +41,9 @@ export const ProfileMenu = () => {
           console.log(true)
           fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${responsee?.data}`).then((result)=>{
             console.log(result.data)
+           
             console.log("toucher")
-            return dispatch(setUser(result.data)), setUserInfos(result.data),setUserId(responsee?.data)
+            return dispatch(setUser(result.data)), setUserInfos(result.data),setUserId(responsee?.data),setLoading(false)
           })
         }
       }).catch((err)=>console.log("no token"))
@@ -275,7 +276,7 @@ export const ProfileMenu = () => {
 
   return (
     <>
-   {/* {loading?(<div>CHARGEMENT...........</div>):(*/}
+    {loading?(<div>CHARGEMENT...........</div>):(
     <div className="profile-menu">
     {masque && <div id="masque"></div>}
     {/*div en absolute qui montre les propositions*/}
@@ -457,7 +458,7 @@ export const ProfileMenu = () => {
 
     </div>
     <NavLink to="/menu"><span className="suivant">Suivant</span></NavLink>
-  </div>
+  </div>)}
   </>
   )
 }
