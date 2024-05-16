@@ -43,7 +43,7 @@ export const ProfileMenu = () => {
             console.log(result.data)
            
             console.log("toucher")
-            return dispatch(setUser(result.data)), setUserInfos(result.data),setUserId(resolve?.userId),setLoading(false)
+            return dispatch(setUser(result.data)), setUserInfos(result.data),setUserId(resolve?.userId)//,setLoading(false)
           })
         }
       }).catch((err)=>console.log("no token"))
@@ -51,7 +51,7 @@ export const ProfileMenu = () => {
     fetchToken()
   },[userId])
  
-  //console.log(userId)
+  console.log(userId)
  /* useEffect(() => {
     
     if(userId !== null){
@@ -272,11 +272,11 @@ export const ProfileMenu = () => {
     setMasque(true)
     setEtatFollowers(true)
   }
-console.log(loading)
+//console.log(loading)
 
   return (
     <>
-    {loading?(<div>CHARGEMENT...........</div>):(
+    {/*{loading?(<div>CHARGEMENT...........</div>):(*/}
     <div className="profile-menu">
     {masque && <div id="masque"></div>}
     {/*div en absolute qui montre les propositions*/}
@@ -458,7 +458,7 @@ console.log(loading)
 
     </div>
     <NavLink to="/menu"><span className="suivant">Suivant</span></NavLink>
-  </div>)}
+  </div>
   </>
   )
 }
