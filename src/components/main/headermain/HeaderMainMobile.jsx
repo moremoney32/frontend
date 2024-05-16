@@ -11,15 +11,22 @@ export const HeaderMainMobile = ({handleClick}) => {
         const fetchToken = async()=>{
           await axios({
             method:'get',
-            url:"https://changes-social.onrender.com/jwt",
+            url:"https://changes-social.onrender.com/api/jwt",
             withCredentials:true
-          }).then((response)=>{
-            setUserId(response?.data)
+          }).then((responsee)=>{
+            //setUserId(response?.data)
+            if(responsee?.data){
+                fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${responsee?.data}`).then((response)=>{
+                return response.json()
+            }).then((result)=>{
+                return setUserInfos(result.data),setUserId(responsee?.data)
+            })
+            }
           }).catch((err)=>console.log("no token"))
         }
         fetchToken()
       },[userId])
-    useEffect(()=>{
+   /* useEffect(()=>{
         if(userId){
             fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response)=>{
             return response.json()
@@ -28,7 +35,7 @@ export const HeaderMainMobile = ({handleClick}) => {
         })
         }
 
-    },[userId])
+    },[userId])*/
       return (
             <div id="main-mobile-header">
                   <div className="main-left-mobile">

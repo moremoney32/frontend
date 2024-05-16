@@ -30,19 +30,19 @@ export const ProfileMenu = () => {
     const fetchToken = async()=>{
       await axios({
         method:'get',
-        url:"https://changes-social.onrender.com/jwt",
+        url:"https://changes-social.onrender.com/api/jwt",
         withCredentials:true
-      }).then((response)=>{
-        console.log(response)
+      }).then((responsee)=>{
+        console.log(responsee)
         
-        if(response?.data){
+        if(responsee?.data){
           //setLoading(false)
-          setUserId(response?.data)
+          //setUserId(response?.data)
           console.log(true)
-          fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${response?.data}`).then((result)=>{
+          fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${responsee?.data}`).then((result)=>{
             console.log(result.data)
             console.log("toucher")
-            return dispatch(setUser(result.data)), setUserInfos(result.data)
+            return dispatch(setUser(result.data)), setUserInfos(result.data),setUserId(responsee?.data)
           })
         }
       }).catch((err)=>console.log("no token"))

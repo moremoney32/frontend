@@ -11,24 +11,30 @@ export const HeaderMenu = ()=>{
         const fetchToken = async()=>{
           await axios({
             method:'get',
-            url:"https://changes-social.onrender.com/jwt",
+            url:"https://changes-social.onrender.com/api/jwt",
             withCredentials:true
           }).then((response)=>{
-            setUserId(response?.data)
+            if(response?.data){
+              fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${response?.data}`).then((response)=>{
+              return response.json()
+          }).then((result)=>{
+              return setUserInfos(result.data),setUserId(response?.data)
+          })
+          }
           }).catch((err)=>console.log("no token"))
         }
         fetchToken()
       },[userId])
-    useEffect(()=>{
-        if(userId){
+   // useEffect(()=>{
+        /*if(userId){
             fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response)=>{
             return response.json()
         }).then((result)=>{
             return setUserInfos(result.data)
         })
-        }
+        }*/
 
-    },[userId])
+    //},[userId])
    
    
     return(
