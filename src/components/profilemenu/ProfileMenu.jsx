@@ -35,11 +35,11 @@ export const ProfileMenu = () => {
       }).then((resolve)=>{
         console.log(resolve)
         
-        if(resolve?.userId){
+        if(resolve.userId){
           //setLoading(false)
           //setUserId(response?.data)
           console.log(true)
-          fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${resolve?.userId}`).then((result)=>{
+          fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${resolve.userId}`).then((result)=>{
             console.log(result.data)
            
             console.log("toucher")

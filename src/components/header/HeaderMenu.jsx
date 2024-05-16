@@ -11,11 +11,11 @@ export const HeaderMenu = ()=>{
         const fetchToken = async()=>{
           await axios({
             method:'get',
-            url:"https://changes-social.onrender.com/api/jwt",
+            url:"https://changes-social.onrender.com/jwt",
             withCredentials:true
           }).then((response)=>{
-            if(response?.data){
-              fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${response?.data}`).then((response)=>{
+            if(response?.userId){
+              fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${response?.userId}`).then((response)=>{
               return response.json()
           }).then((result)=>{
               return setUserInfos(result.data),setUserId(response?.data)
