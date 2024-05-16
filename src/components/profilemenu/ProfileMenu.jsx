@@ -32,18 +32,18 @@ export const ProfileMenu = () => {
         method:'get',
         url:"https://changes-social.onrender.com/api/jwt",
        // withCredentials:true
-      }).then((responsee)=>{
-        console.log(responsee)
+      }).then((resolve)=>{
+        console.log(resolve)
         
-        if(responsee?.data){
+        if(resolve?.userId){
           //setLoading(false)
           //setUserId(response?.data)
           console.log(true)
-          fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${responsee?.data}`).then((result)=>{
+          fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${resolve?.userId}`).then((result)=>{
             console.log(result.data)
            
             console.log("toucher")
-            return dispatch(setUser(result.data)), setUserInfos(result.data),setUserId(responsee?.data),setLoading(false)
+            return dispatch(setUser(result.data)), setUserInfos(result.data),setUserId(resolve?.userId),setLoading(false)
           })
         }
       }).catch((err)=>console.log("no token"))

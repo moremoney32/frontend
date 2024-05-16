@@ -13,13 +13,12 @@ export const HeaderMainMobile = ({handleClick}) => {
             method:'get',
             url:"https://changes-social.onrender.com/api/jwt",
             withCredentials:true
-          }).then((responsee)=>{
-            //setUserId(response?.data)
-            if(responsee?.data){
-                fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${responsee?.data}`).then((response)=>{
+          }).then((resolve)=>{
+            if(resolve?.userId){
+                fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${resolve?.userId}`).then((response)=>{
                 return response.json()
             }).then((result)=>{
-                return setUserInfos(result.data),setUserId(responsee?.data)
+                return setUserInfos(result.data),setUserId(resolve?.userId)
             })
             }
           }).catch((err)=>console.log("no token"))

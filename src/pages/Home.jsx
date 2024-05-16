@@ -16,7 +16,7 @@ export const Home =()=>{
         }).then((response)=>{
           console.log(response)
          
-          setIdUser(response.data)
+          setIdUser(response.userId)
         }).catch((err)=>console.log("no token"))
   
       }
