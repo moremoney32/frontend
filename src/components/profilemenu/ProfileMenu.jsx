@@ -272,7 +272,7 @@ export const ProfileMenu = () => {
     setMasque(true)
     setEtatFollowers(true)
   }
-
+console.log(loading)
 
   return (
     <>
