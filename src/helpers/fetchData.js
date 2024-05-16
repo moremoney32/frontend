@@ -7,7 +7,7 @@ export function fetchData(url,data){
       }, 
       
       body: JSON.stringify(data),
-      credentials: "include"
+      //credentials: "include"
     };
 
       fetch(url,dataToSend).then((response)=>{
