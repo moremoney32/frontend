@@ -31,7 +31,7 @@ export const ProfileMenu = () => {
       await axios({
         method:'get',
         url:"https://changes-social.onrender.com/api/jwt",
-        withCredentials:true
+       // withCredentials:true
       }).then((responsee)=>{
         console.log(responsee)
         
