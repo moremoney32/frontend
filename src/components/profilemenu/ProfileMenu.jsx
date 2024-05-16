@@ -51,7 +51,7 @@ export const ProfileMenu = () => {
     fetchToken()
   },[userId])
  
-  console.log(userId)
+  //console.log(userId)
  /* useEffect(() => {
     
     if(userId !== null){
