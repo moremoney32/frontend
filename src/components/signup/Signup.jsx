@@ -75,7 +75,7 @@ const handleSubmitMobile = (e)=>{
         fetchData("https://changes-social.onrender.com/api/signup",formData).then((result)=>{
          // https://changes-social.onrender.com
          
-            
+            console.log(result)
             if(result.message === "Utilisateur créé avec succès"){
               return snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.message, 5000),localStorage.setItem("dataUser",result.userId),navigate("/login")
             }
