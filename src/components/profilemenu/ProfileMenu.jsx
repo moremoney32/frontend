@@ -26,7 +26,7 @@ export const ProfileMenu = () => {
   const [connect, setConnect] = useState(true);
   const [loading, setLoading] = useState(true);
   
-  useEffect(()=>{
+  /*useEffect(()=>{
     const fetchToken = async()=>{
       await axios({
         method:'get',
@@ -36,8 +36,6 @@ export const ProfileMenu = () => {
         console.log(resolve)
         
         if(resolve.userId){
-          //setLoading(false)
-          //setUserId(response?.data)
           console.log(true)
           fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${resolve.userId}`).then((result)=>{
             console.log(result.data)
@@ -49,29 +47,21 @@ export const ProfileMenu = () => {
       }).catch((err)=>console.log("no token"))
     }
     fetchToken()
-  },[userId])
- 
-  console.log(userId)
- /* useEffect(() => {
+  },[userId])*/
+ const dataUser = localStorage.getItem("dataUser")
+ console.log(dataUser)
+  useEffect(() => {
     
-    if(userId !== null){
-      setLoading(false)
-      alert(true)
-      alert(userId)
+    if(dataUser){
       console.log(true)
-      fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((result)=>{
+      fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${dataUser}`).then((result)=>{
         console.log(result.data)
-        return dispatch(setUser(result.data)), setUserInfos(result.data)
+        return dispatch(setUser(result.data)),setUserInfos(result.data),setLoading(false)
       })
-      /*fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response) => {
-        return response.json()
-      }).then((result) => {
-        console.log(result.data)
-        return dispatch(setUser(result.data)), setUserInfos(result.data)
-      })
+     
     }
     
-  }, [userId])*/
+  }, [userId])
  // console.log(userInfos)
   const handleAllUsers = () => {
     setMasque(true)
@@ -276,7 +266,7 @@ export const ProfileMenu = () => {
 
   return (
     <>
-    {/*{loading?(<div>CHARGEMENT...........</div>):(*/}
+    {loading?(<div>CHARGEMENT...........</div>):(
     <div className="profile-menu">
     {masque && <div id="masque"></div>}
     {/*div en absolute qui montre les propositions*/}
@@ -458,7 +448,7 @@ export const ProfileMenu = () => {
 
     </div>
     <NavLink to="/menu"><span className="suivant">Suivant</span></NavLink>
-  </div>
+  </div>)}
   </>
   )
 }
