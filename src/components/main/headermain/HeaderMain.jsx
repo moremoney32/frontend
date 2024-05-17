@@ -13,8 +13,8 @@ import axios from "axios"
 
 export const HeaderMain = ({handle})=>{
   const [userInfos,setUserInfos] = useState(useSelector(state => state?.userInfos))
-  const [userId,setUserId] = useState(null)
-  useEffect(()=>{
+  //const [userId,setUserId] = useState(null)
+ /* useEffect(()=>{
       const fetchToken = async()=>{
         await axios({
           method:'get',
@@ -32,8 +32,9 @@ export const HeaderMain = ({handle})=>{
         }).catch((err)=>console.log("no token"))
       }
       fetchToken()
-    },[userId])
- /* useEffect(()=>{
+    },[userId])*/
+    const userId = localStorage.getItem("dataUser")
+  useEffect(()=>{
       if(userId){
           fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response)=>{
           return response.json()
@@ -42,7 +43,7 @@ export const HeaderMain = ({handle})=>{
       })
       }
 
-  },[userId])*/
+  },[userId])
     return(
     <>
     <HeaderMainMobile handleClick={handle}/>

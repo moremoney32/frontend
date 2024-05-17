@@ -23,7 +23,7 @@ export const DisplayPosts = ({ newPostDatas, firstData, lastData }) => {
       const [heure, setHeure] = useState(null)
       const [emogiStickers, setEmogiStickers] = useState(false);
       const [inputValue, setInputValue] = useState("");
-      const [userId, setUserId] = useState(null)
+      //const [userId, setUserId] = useState(null)
       const [firstIndexComments, setFirstIndexComments] = useState(0);
       const [lastIndexComments, setLastIndexComments] = useState(1);
       const [userInfos, setUserInfos] = useState(useSelector(state => state?.userInfos))
@@ -59,7 +59,7 @@ export const DisplayPosts = ({ newPostDatas, firstData, lastData }) => {
                         setPostDatas(result.allPostData)
                   });
       }
-      useEffect(() => {
+     /* useEffect(() => {
             const fetchToken = async () => {
                   await axios({
                         method: 'get',
@@ -77,9 +77,10 @@ export const DisplayPosts = ({ newPostDatas, firstData, lastData }) => {
                   }).catch((err) => console.log("no token"))
             }
             fetchToken()
-      }, [userId])
+      }, [userId])*/
       //console.log(userId)
-      /*useEffect(() => {
+      const userId = localStorage.getItem("dataUser")
+      useEffect(() => {
             if (userId) {
                   fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response) => {
                         return response.json()
@@ -88,7 +89,7 @@ export const DisplayPosts = ({ newPostDatas, firstData, lastData }) => {
                   })
             }
 
-      }, [userId])*/
+      }, [userId])
 
       const closeIcons = () => {
             setComments(false)

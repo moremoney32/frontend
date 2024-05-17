@@ -35,7 +35,7 @@ export const CenterMain = () => {
       const inputText = document.querySelector("#post-input-input");
       const dispatch = useDispatch();
       const [userInfos,setUserInfos] = useState(useSelector(state => state?.userInfos))
-      const [userId,setUserId] = useState(null)
+     // const [userId,setUserId] = useState(null)
       const [firstIndex, setFirstIndex] = useState(0);
       const [lastIndex, setLastIndex] = useState(1);
       const lotSize = 2; // Nombre d'objets à charger à la fois
@@ -43,7 +43,7 @@ export const CenterMain = () => {
      console.log(totalLots)
     
      const containerUseref = useRef(null)
-      useEffect(()=>{
+     /* useEffect(()=>{
           const fetchToken = async()=>{
             await axios({
               method:'get',
@@ -61,9 +61,10 @@ export const CenterMain = () => {
             }).catch((err)=>console.log("no token"))
           }
           fetchToken()
-        },[userId])
+        },[userId])*/
        // console.log(userId)
-   /* useEffect(()=>{
+      const userId = localStorage.getItem("dataUser")
+    useEffect(()=>{
       if(userId){
             fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response)=>{
             return response.json()
@@ -72,7 +73,7 @@ export const CenterMain = () => {
         })
         }
 
-    },[userId])*/
+    },[userId])
       
      
      
@@ -214,9 +215,7 @@ export const CenterMain = () => {
              if(entry.isIntersecting){
                         setLastIndex((prevLots) => prevLots + 1);        
              }
-             return;
-            
-             
+             return;    
        })
       },option);
       if(containerUserefCurrent){
@@ -244,9 +243,7 @@ const option = {
              if(entry.isIntersecting){
                         setLastIndex((prevLots) => prevLots + 1);        
              }
-             return;
-            
-             
+             return;    
        })
       },option);
       if(containerUserefCurrent){

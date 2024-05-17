@@ -7,7 +7,7 @@ import axios from "axios"
 export const Home =()=>{
     const [idUser,setIdUser]= useState(null)
     const navigate = useNavigate();
-    useEffect(()=>{
+   /* useEffect(()=>{
       const fetchToken = async()=>{
         await axios({
           method:'get',
@@ -21,8 +21,9 @@ export const Home =()=>{
   
       }
       fetchToken()
-    },[idUser])
-    if(idUser){
+    },[idUser])*/
+    const userId = localStorage.getItem("dataUser")
+    if(userId){
         return navigate("/profile")
     }
     return(

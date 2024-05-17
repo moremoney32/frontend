@@ -7,7 +7,7 @@ import { setUser } from "../../appRedux/features/userSlice";
 import { setUserData } from "../../appRedux/features/allUserSlice"
 import { formatTime } from "../../helpers/formatTime";
 import { NavLink } from "react-router-dom";
-import axios from "axios"
+//import axios from "axios"
 import { fetchToken } from "../../helpers/fetchToken";
 
 
@@ -21,40 +21,16 @@ export const ProfileMenu = () => {
   const [userInfos, setUserInfos] = useState(useSelector(state => state?.userInfos))
   const [etatFollowing, setEtatFollowing] = useState(false);
   const [etatFollowers, setEtatFollowers] = useState(false);
-  const[userId,setUserId] = useState(null)
+  //const[userId,setUserId] = useState(null)
   const [lock, setLock] = useState(true);
   const [connect, setConnect] = useState(true);
   const [loading, setLoading] = useState(true);
   
-  /*useEffect(()=>{
-    const fetchToken = async()=>{
-      await axios({
-        method:'get',
-        url:"https://changes-social.onrender.com/jwt",
-        withCredentials:true
-      }).then((resolve)=>{
-        console.log(resolve)
-        
-        if(resolve.userId){
-          console.log(true)
-          fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${resolve.userId}`).then((result)=>{
-            console.log(result.data)
-           
-            console.log("toucher")
-            return dispatch(setUser(result.data)), setUserInfos(result.data),setUserId(resolve?.userId)//,setLoading(false)
-          })
-        }
-      }).catch((err)=>console.log("no token"))
-    }
-    fetchToken()
-  },[userId])*/
- const dataUser = localStorage.getItem("dataUser")
- console.log(dataUser)
+ const userId = localStorage.getItem("dataUser")
   useEffect(() => {
     
-    if(dataUser){
-      console.log(true)
-      fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${dataUser}`).then((result)=>{
+    if(userId){
+      fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((result)=>{
         console.log(result.data)
         return dispatch(setUser(result.data)),setUserInfos(result.data),setLoading(false)
       })
@@ -62,22 +38,13 @@ export const ProfileMenu = () => {
     }
     
   }, [userId])
- // console.log(userInfos)
   const handleAllUsers = () => {
     setMasque(true)
     fetchToken("https://changes-social.onrender.com/api").then((result)=>{
-        //console.log(result)
         return dispatch(setUserData(result))
       })
-    /*fetch("https://changes-social.onrender.com/api").then((response) => {
-      return response.json()
-    }).then((result) => {
-      //console.log(result)
-      return dispatch(setUserData(result))
-    })*/
   }
   const allDatas = useSelector(state => state?.allUserDatas)
-  //console.log(allDatas.allUserData)
   const handleChangeInput = (e) => {
    // console.log(e.target.value)
     const { name, value } = e.target;
@@ -137,6 +104,7 @@ export const ProfileMenu = () => {
       formData.append("userId", userInfos._id);
       formData.append("name", userInfos.name);
       //console.log(formData)
+      setConnect(false)
       try {
         const response = await fetch('https://changes-social.onrender.com/api/upload', {
           method: 'POST',
@@ -150,6 +118,7 @@ export const ProfileMenu = () => {
         //console.log('telechargement reussi:', data);
         if (data.message === "Fichier téléchargé et utilisateur mis à jour avec succès") {
           alert("photo de profil enregistree")
+          setConnect(true)
         }
 
       } catch (error) {
@@ -216,16 +185,11 @@ export const ProfileMenu = () => {
     }
   }
   const closeArrayFollower = () => {
-    //setClosse(false)
+    setLock(false)
     fetchToken(`https://changes-social.onrender.com/api/infoinfocontrollers/${userInfos._id}`).then((result) =>{
       return dispatch(setUser(result.data)), setMasque(false), setEtatFollowing(false), setEtatFollowers(false), setUserInfos(result.data), console.log(userInfos)
     })
-    /*fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userInfos._id}`).then((response) => {
-      return response.json()
-    }).then((result) => {
-      //console.log(result.data)
-      return dispatch(setUser(result.data)), setMasque(false), setEtatFollowing(false), setEtatFollowers(false), setUserInfos(result.data), console.log(userInfos)
-    })*/
+    
   }
   const removeStatutFollow = async (e, userId) => {
     e.target.textContent = "Desabonnés";
@@ -262,7 +226,6 @@ export const ProfileMenu = () => {
     setMasque(true)
     setEtatFollowers(true)
   }
-//console.log(loading)
 
   return (
     <>
@@ -336,7 +299,7 @@ export const ProfileMenu = () => {
           {etatFollowing && masque && <div id="proposition">
             <div className="sous-parent-proposition">
               <h5> Tes Abonnements</h5>
-              <img src={close} alt="" className="proposition-close" onClick={closeArrayFollower} />
+              {connect?<img src={close} alt="" className="proposition-close" onClick={closeArrayFollower} />:<span className="proposition-closse">Patientez ...</span>}
             </div>
             <div className="check-following">
               {
@@ -379,7 +342,7 @@ export const ProfileMenu = () => {
           {etatFollowers && masque && <div id="proposition">
             <div className="sous-parent-proposition">
               <h5> Tes Abonnes</h5>
-              <img src={close} alt="" className="proposition-close" onClick={closeArrayFollower} />
+              {connect?<img src={close} alt="" className="proposition-close" onClick={closeArrayFollower} />:<span className="proposition-closse">Patientez ...</span>}
             </div>
             <div className="check-following">
               {
@@ -395,7 +358,6 @@ export const ProfileMenu = () => {
                           className="children-check-following-right"
                           data-id={data._id}
                           onClick={(e) => {
-                            console.log(true)
 
                           }}
 

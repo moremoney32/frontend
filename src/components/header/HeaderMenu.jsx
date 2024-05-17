@@ -3,10 +3,10 @@ import chatter from "../../icons/chatter.svg"
 import people from "../../icons/people.svg"
 import { useSelector } from "react-redux"
 import { useEffect, useState } from "react";
-import axios from "axios"
+//import axios from "axios"
 export const HeaderMenu = ()=>{
     const [userInfos,setUserInfos] = useState(useSelector(state => state?.userInfos))
-    const [userId,setUserId] = useState(null)
+   /* const [userId,setUserId] = useState(null)
     useEffect(()=>{
         const fetchToken = async()=>{
           await axios({
@@ -24,17 +24,18 @@ export const HeaderMenu = ()=>{
           }).catch((err)=>console.log("no token"))
         }
         fetchToken()
-      },[userId])
-   // useEffect(()=>{
-        /*if(userId){
+      },[userId])*/
+      const userId = localStorage.getItem("dataUser")
+    useEffect(()=>{
+        if(userId){
             fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response)=>{
             return response.json()
         }).then((result)=>{
             return setUserInfos(result.data)
         })
-        }*/
+        }
 
-    //},[userId])
+    },[userId])
    
    
     return(

@@ -3,29 +3,13 @@ import barMaise from "../../../assets/icons/barMaise.svg";
 import maise from "../../../assets/icons/maise.svg";
 import messages from "../../../assets/icons/messages.svg";
 import { useEffect, useState } from "react";
-import axios from "axios"
+//import axios from "axios"
 export const HeaderMainMobile = ({handleClick}) => {
     const [userInfos,setUserInfos] = useState(useSelector(state => state?.userInfos))
-    const [userId,setUserId] = useState(null)
+    //const [userId,setUserId] = useState(null)
+    const userId = localStorage.getItem("dataUser")
+  
     useEffect(()=>{
-        const fetchToken = async()=>{
-          await axios({
-            method:'get',
-            url:"https://changes-social.onrender.com/jwt",
-            withCredentials:true
-          }).then((resolve)=>{
-            if(resolve?.userId){
-                fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${resolve?.userId}`).then((response)=>{
-                return response.json()
-            }).then((result)=>{
-                return setUserInfos(result.data),setUserId(resolve?.userId)
-            })
-            }
-          }).catch((err)=>console.log("no token"))
-        }
-        fetchToken()
-      },[userId])
-   /* useEffect(()=>{
         if(userId){
             fetch(`https://changes-social.onrender.com/api/infoinfocontrollers/${userId}`).then((response)=>{
             return response.json()
@@ -34,7 +18,7 @@ export const HeaderMainMobile = ({handleClick}) => {
         })
         }
 
-    },[userId])*/
+    },[userId])
       return (
             <div id="main-mobile-header">
                   <div className="main-left-mobile">
