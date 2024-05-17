@@ -104,7 +104,7 @@ export const ProfileMenu = () => {
       formData.append("userId", userInfos._id);
       formData.append("name", userInfos.name);
       //console.log(formData)
-      setConnect(false)
+      //setConnect(false)
       try {
         const response = await fetch('https://changes-social.onrender.com/api/upload', {
           method: 'POST',
