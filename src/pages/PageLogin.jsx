@@ -22,10 +22,7 @@ export const PageLogin = ()=>{
       }
       fetchToken()
     },[idUser])*/
-    const userId = localStorage.getItem("dataUser")
-    if(userId){
-        return navigate("/profile")
-    }
+   
     return(
         <>
         <Header/>
