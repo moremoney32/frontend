@@ -77,7 +77,7 @@ const handleSubmitMobile = (e)=>{
          
             
             if(result.message === "Utilisateur créé avec succès"){
-              return snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.message, 5000),navigate("/login")
+              return snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.message, 5000),localStorage.setItem("dataUser",result.userId),navigate("/login")
             }
             else if(result.messageError === 'cet email existe deja veuillez changer d adresse'){
                snackbbar(document.querySelector("#body"), "../../icons/info.svg", result.messageError, 5000)
